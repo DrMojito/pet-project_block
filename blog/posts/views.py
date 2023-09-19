@@ -1,10 +1,17 @@
 from django.shortcuts import render
-from django.http import HttpResponse
 
 
 def index(request):
-    return HttpResponse('Главная страница')
+    template = 'posts/index.html'
+    context = {
+        'title': "Главная страница"
+    }
+    return render(request, template, context)
 
 
 def group_posts(request, slug):
-    return HttpResponse(f'старница с {slug}')
+    template = 'posts/group_list.html'
+    context = {
+        'title': "Здесь информация о мороженном}"
+    }
+    return render(request, template, context)
