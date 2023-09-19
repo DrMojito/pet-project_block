@@ -16,5 +16,11 @@ python -m venv venv
 **Для Linux**
 python3.9 -m venv venv
 
+Активировать виртуальное окружение
+**Для Linux**
+source venv/bin/activate
+**Для Windows**
+source venv/Scripts/activate
+
 Установить список зависиомстей, который лежит в корневой директории
 pip install -r requirements.txt
