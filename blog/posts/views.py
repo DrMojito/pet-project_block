@@ -1,7 +1,10 @@
 from django.core.paginator import Paginator
-from django.shortcuts import render, get_object_or_404
-from .models import Post, Group
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+from .models import Post, Group
+from .forms import *
 
 User = get_user_model()
 
@@ -48,5 +51,22 @@ def group_posts(request, slug):
         'title': "Здесь информация о мороженном}",
         'posts': posts,
         'group': group
+    }
+    return render(request, template, context)
+
+@login_required
+def add_post(request):
+    template = 'posts/add_post.html'
+    if request.method == 'POST':
+        form = CreatePost(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.author = request.user
+            post.save()
+            return redirect(reverse('posts:profile', args=[request.user.username]))
+    else:
+        form = CreatePost()
+    context = {
+        'form': form,
     }
     return render(request, template, context)

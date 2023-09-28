@@ -2,7 +2,7 @@
 {% block title %}Технологии {% endblock %}
 {% block content %}
 
-<div class="row container">
+<div class="row container text-center"> <!-- Добавлен класс text-center -->
   <h1>Проект разработан</h1>
   <aside class="col-12 col-md-6">
     <ul class="list-group list-group-flush">
@@ -12,10 +12,19 @@
       <li class="list-group-item">
         Django 2.2
       </li>
+      <li class="list-group-item">
+        Jinja
+      </li>
+      <li class="list-group-item">
+        BootStrap
+      </li>
     </ul>
   </aside>
   <article class="col-12 col-md-6">
-    <p>Текст страницы "Технологии"</p>
+    <div class="container text-left">
+      <p>Текст страницы "Технологии"</p>
+      <p>В проекте также применялся код написанный ChatGPT (v.3.5) по определенным промтам</p>
+    </div>
   </article>
 </div>
-{% endblock %} 
+{% endblock %}

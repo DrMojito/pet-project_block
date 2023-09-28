@@ -30,7 +30,7 @@ urlpatterns = [
          name='password_reset_form'),
 
     path('password_change/', 
-         PasswordChangeView.as_view(template_name='users/password_change.html'), 
+         PasswordChangeView.as_view(template_name='users/password_change_form.html'), 
          name='password_change'),
 
     # Сообщение об успешном изменении пароля
